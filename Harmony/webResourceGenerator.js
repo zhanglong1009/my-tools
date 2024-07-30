@@ -52,6 +52,8 @@ function traverseDirectory(dir) {
         mimeType = 'image/webp';
       } else if (filePath.endsWith('.gif')) {
         mimeType = 'image/gif';
+      } else if (filePath.endsWith('.txt')) {
+        mimeType = 'text/plain';
       }
 
 
@@ -72,7 +74,7 @@ const targetDirectory = './' + FileName;
 const tsCode = `
 export interface WebResource {
   path: string;
-  mimeType: "text/html" | "text/css" | "text/markdown" |"application/javascript" | "application/js" | "image/svg+xml" | "image/png" | "image/x-ico" | "image/jpeg"| "image/webp"| "image/gif" | "application/json" | "application/octet-stream" | "application/wasm";
+  mimeType: "text/html" | "text/css" | "text/markdown" | "text/plain"  |"application/javascript" | "application/js" | "image/svg+xml" | "image/png" | "image/x-ico" | "image/jpeg"| "image/webp"| "image/gif" | "application/json" | "application/octet-stream" | "application/wasm";
 }
 
 export const webResourceList: WebResource[] = ${JSON.stringify(traverseDirectory(targetDirectory), null, 2)};
