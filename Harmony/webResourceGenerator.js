@@ -79,23 +79,6 @@ export interface WebResource {
 
 export const webResourceList: WebResource[] = ${JSON.stringify(traverseDirectory(targetDirectory), null, 2)};
 
-export function getSchemeMap(url: string) {
-  const res: [string, string][] = []
-  webResourceList.forEach(item => {
-    let key = url + "/" + item.path
-    res.push([key, item.path])
-  })
-  return new Map(res) 
-}
-
-export function getMimeType() {
-  const res: [string, string][] = []
-  webResourceList.forEach(item => {
-    res.push([item.path, item.mimeType])
-  })
-  return new Map(res) 
-}
-
 `;
 
 // 将 TypeScript 代码写入 .ts 文件
